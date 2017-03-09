@@ -28,8 +28,9 @@ user = {your-icecat-username}
 password = {your-icecat-password} 
 
 [product]
-language = {preferred-language}
+language = {preferred-language-code}
 ```
+Language: [Supported language codes.](https://github.com/GreenCore/icecat/blob/master/Languages.md)
 
 
 Run the follow command: 
