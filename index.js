@@ -8,58 +8,32 @@
 
 const fs = require('fs');
 const ini = require('ini');
-const Table = require('cli-table');
-
 const icecat = require('icecat');
+const DisplayProduct = require('./lib/displayProduct');
+const IcecatConsole = require('./lib/icecatConsole');
+const IcecatArguments = require('./lib/icecatArguments');
+const IcecatConfig = require('./lib/icecatConfig');
 
-let argv = require('minimist')(process.argv.slice(2));
+let icecatConsole = new IcecatConsole();
+let icecatArguments = new IcecatArguments();
+let icecatConfig = new IcecatConfig();
 
-let configfilePath = argv.c;
-let productEAN = argv.ean;
+if (icecatArguments.currentOption() === icecatArguments.options.EMPTY) {
+    icecatConsole.run();
+} else if (icecatArguments.currentOption() === icecatArguments.options.GETPRODUCT) {
+    icecatConfig.getIcecatConfig().then(function (config) {
+        const Icecat = new icecat(config.account.username, config.account.password);
 
-let config = ini.parse(fs.readFileSync(__dirname + '/' + configfilePath, 'utf-8'))
-
-const Icecat = new icecat(config.account.user, config.account.password);
-
-Icecat.openCatalog.getProduct(config.product.language, productEAN).then(function (product) {
-
-    if (product.getReturnCode() == product.returnCode.SUCCESS) {
-        showTable(product);
-    } else {
-        console.log('Product data not found.');
-    }
-});
-
-/**
- *
- * @param product
- */
-function showTable(product) {
-
-    let terminalWidth = process.stdout.columns;
-    const colAWidth = 30;
-    let colBWidth = terminalWidth - colAWidth - 10;
-
-    if (colBWidth < colAWidth)
-    {
-        colBWidth = 30;
-    }
-
-    let table = new Table({
-        head: ['Type', 'Value']
-        , colWidths: [colAWidth, colBWidth]
+        Icecat.openCatalog.getProduct(config.product.defaultLanguage, icecatArguments.argv.ean)
+            .then(function (product) {
+                let displayProduct = new DisplayProduct();
+                displayProduct.display(product);
+            });
+    }).catch(function () {
+        console.log('Invalid product config.');
     });
-
-    table.push(
-        ['Name: ', product.getName()],
-        ['Release: ', product.getReleaseDate()],
-        ['Supplier: ', product.getSupplier()],
-        ['Category: ', product.getCategory()],
-        ['Short Description: ', product.getShortDescription()],
-        ['Product Url: ', product.getProductUrl()],
-        ['Manual PDF Url: ', product.getProductManualPDFurl()],
-        ['Product Info PDF Url: ', product.getProductInfoPDFurl()]
-    );
-
-    console.log(table.toString());
+} else if (icecatArguments.currentOption() === icecatArguments.options.HELP) {
+    icecatConsole.help();
+} else {
+    console.log("Invalid argument(s)");
 }

@@ -24,11 +24,11 @@ npm install icecat-cli -g
 Create config.ini with:
 ```ini
 [account]
-user = {your-icecat-username}
+username = {your-icecat-username}
 password = {your-icecat-password} 
 
 [product]
-language = {preferred-language-code}
+defaultLanguage = {preferred-language-code}
 ```
 Language: [Supported language codes.](https://github.com/GreenCore/icecat/blob/master/Languages.md)
 
