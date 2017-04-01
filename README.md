@@ -1,4 +1,5 @@
 # Icecat CLI
+[![Version][npm-image]][npm-url] ![License][license-image]
 
 
 # Getting started
@@ -69,7 +70,7 @@ Example response:
 ## Save product information
 
 ```bash
-icecat -c config.ini --save 4948570114344
+icecat -c config.ini --gtin 4948570114344 --save
 ```
 
 Example response:
@@ -110,3 +111,10 @@ Creates folder structure:
         - 48068173-7155.pdf
     - 4948570114344.xml
 
+
+# License
+[MIT License](https://github.com/GreenCore/icecat-cli/blob/master/LICENSE)
+
+[npm-image]: https://img.shields.io/npm/v/icecat-cli.svg
+[npm-url]: https://npmjs.org/package/icecat-cli
+[license-image]: https://img.shields.io/npm/l/icecat-cli.svg
