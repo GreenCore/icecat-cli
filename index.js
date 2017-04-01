@@ -23,7 +23,7 @@ if (icecatArguments.currentOption() === icecatArguments.options.EMPTY) {
     icecatConfig.getIcecatConfig().then(function (config) {
         const Icecat = new icecat(config.account.username, config.account.password);
 
-        Icecat.openCatalog.getProduct(config.product.defaultLanguage, icecatArguments.argv.ean)
+        Icecat.openCatalog.getProduct(config.product.defaultLanguage, icecatArguments.argv.gtin)
             .then(function (product) {
                 let displayProduct = new DisplayProduct();
                 displayProduct.display(product);
@@ -35,7 +35,7 @@ if (icecatArguments.currentOption() === icecatArguments.options.EMPTY) {
     icecatConfig.getIcecatConfig().then(function (config) {
         const Icecat = new icecat(config.account.username, config.account.password);
 
-        Icecat.openCatalog.getProduct(config.product.defaultLanguage, icecatArguments.argv.ean)
+        Icecat.openCatalog.getProduct(config.product.defaultLanguage, icecatArguments.argv.gtin)
             .then(function (product) {
                let saveProduct = new SaveProduct();
                saveProduct.save(product);
