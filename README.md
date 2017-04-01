@@ -42,7 +42,7 @@ icecat -c config.ini --gtin 4948570114344
 ```
 
 
-#Commands
+# Commands
 
 ## Show product information
 
