@@ -6,6 +6,7 @@
   "bin": {
     "icecat": "./index.js"
   },
+  "preferGlobal": true,
   "scripts": {
     "test": "mocha"
   },
