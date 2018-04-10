@@ -43,6 +43,8 @@ if (icecatArguments.currentOption() === icecatArguments.options.EMPTY) {
     }).catch(function () {
         console.log('Invalid product config.');
     });
+} else if (icecatArguments.currentOption() === icecatArguments.options.VERSION) {
+    icecatConsole.version();
 } else if (icecatArguments.currentOption() === icecatArguments.options.HELP) {
     icecatConsole.help();
 } else {

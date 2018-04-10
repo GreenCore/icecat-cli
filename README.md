@@ -1,5 +1,12 @@
 # Icecat CLI
-[![Version][npm-image]][npm-url] ![License][license-image]
+[![Version][npm-image]][npm-url] 
+![License][license-image] 
+[![Known Vulnerabilities][snyk-image]][snyk-url]
+
+
+Command Line Interface for Icecat product data.
+- View basic product details in terminal
+- Download product info
 
 
 # Getting started
@@ -62,7 +69,7 @@ Example response:
 | Category: | public displays |
 | Short Description: | 39.5 MVA, 3 ms, 350 cd/m², 3840 x 2160, 16:9, PiP, PbP, HTCP, VESA, OSD, 3 x USB 3… |
 | Product Url:  | http://www.iiyama.com/nl_nl/producten/prolite-x4071uhsu-b1/ |
-| Manual PDF Url: | http://pdfs.icecat.biz/pdf/48068173-7155.pdf |
+| Manual PDF Url: | http://pdfs.icecat.biz/pdf/48068167-5566-manual.pdf |
 | Product Info PDF Url:    | http://pdfs.icecat.biz/pdf/48068173-7155.pdf|
 
 <sub>note: *The Manual PDF Url* and *Product Info PDF Url* are sometimes the same PDF file</sub>
@@ -117,4 +124,6 @@ Creates folder structure:
 
 [npm-image]: https://img.shields.io/npm/v/icecat-cli.svg
 [npm-url]: https://npmjs.org/package/icecat-cli
+[snyk-image]: https://snyk.io/test/github/GreenCore/icecat-cli/badge.svg
+[snyk-url]: https://snyk.io/test/github/GreenCore/icecat-cli
 [license-image]: https://img.shields.io/npm/l/icecat-cli.svg
