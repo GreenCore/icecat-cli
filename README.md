@@ -7,6 +7,7 @@
 Command Line Interface for Icecat product data.
 - View basic product details in terminal
 - Download product info
+- Download Full Icecat Free XML Export
 
 
 # Getting started
@@ -72,8 +73,6 @@ Example response:
 | Manual PDF Url: | http://pdfs.icecat.biz/pdf/48068167-5566-manual.pdf |
 | Product Info PDF Url:    | http://pdfs.icecat.biz/pdf/48068173-7155.pdf|
 
-<sub>note: *The Manual PDF Url* and *Product Info PDF Url* are sometimes the same PDF file</sub>
-
 ## Save product information
 
 ```bash
@@ -85,17 +84,8 @@ Example response:
 Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_6765.jpg
 Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_6984.jpg
 Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_6068.jpg
-Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_1198.jpg
-Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_4628.jpg
-Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_9043.jpg
-Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_5438.jpg
-Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_9148.jpg
-Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_0569.jpg
-Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_3889.jpg
-Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_7312.jpg
-Successfully downloaded file: http://images.icecat.biz/img/gallery/29900045_6129.jpg
 Successfully downloaded file: http://pdfs.icecat.biz/pdf/48068173-7155.pdf
-Successfully downloaded file: http://pdfs.icecat.biz/pdf/48068173-7155.pdf
+... etc
 ```
 
 Creates folder structure:
@@ -105,19 +95,22 @@ Creates folder structure:
         - 29900045_9148.jpg
         - 29900045_7312.jpg
         - 29900045_6984.jpg
-        - 29900045_3889.jpg
-        - 29900045_1198.jpg
-        - 29900045_0569.jpg
-        - 29900045_6765.jpg
-        - 29900045_4628.jpg
-        - 29900045_9043.jpg
-        - 29900045_6068.jpg
-        - 29900045_6129.jpg
-        - 29900045_5438.jpg
+        - ... etc
     - pdfs
         - 48068173-7155.pdf
     - 4948570114344.xml
 
+## Download Full Icecat Free XML Export
+```bash
+icecat -c config.ini --export
+```
+
+Example response:
+```bash
+Start downloading export to: 
+ /home/icecatuser/example/export.xml
+  Downloading [============        ] 2637 Kb/s 58% 13.7s
+```
 
 # License
 [MIT License](https://github.com/GreenCore/icecat-cli/blob/master/LICENSE)
