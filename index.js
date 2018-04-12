@@ -50,7 +50,11 @@ if (currentOption === icecatArguments.options.EMPTY) {
 } else if (currentOption === icecatArguments.options.EXPORTXML) {
     icecatConfig.getIcecatConfig().then(function (config) {
         let auth = encodeURIComponent(config.account.username) + ':' + encodeURIComponent(config.account.password);
-        exportXML.save(auth);
+        let exportLang = 'EN';
+        if (typeof icecatArguments.argv.lang !== 'undefined') {
+            exportLang = icecatArguments.argv.lang;
+        }
+        exportXML.save(auth, exportLang);
     }).catch(function (err) {
         if (err) throw err;
         console.log('Invalid product config.');

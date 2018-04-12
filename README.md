@@ -108,7 +108,18 @@ icecat -c config.ini --export
 Example response:
 ```bash
 Start downloading export to: 
- /home/icecatuser/example/export.xml
+ /home/icecat/example/export-EN.xml
+  Downloading [============        ] 2637 Kb/s 58% 13.7s
+```
+
+```bash
+icecat -c config.ini --export --lang DE
+```
+
+Example response:
+```bash
+Start downloading export to: 
+ /home/icecat/example/export-DE.xml
   Downloading [============        ] 2637 Kb/s 58% 13.7s
 ```
 
