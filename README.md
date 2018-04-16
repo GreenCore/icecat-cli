@@ -5,9 +5,9 @@
 
 
 Command Line Interface for Icecat product data.
-- View basic product details in terminal
-- Download product info
-- Download Full Icecat Free XML Export
+- [Show product information](#show-product-information)
+- [Download product information](#download-product-information)
+- [Download Free XML Export](#download-free-xml-export)
 
 
 # Getting started
@@ -55,8 +55,14 @@ icecat -c config.ini --gtin 4948570114344
 
 ## Show product information
 
+Request with EAN:
 ```bash
 icecat -c config.ini --gtin 4948570114344
+```
+
+Request with Icecat Product ID:
+```bash
+icecat -c config.ini --id 29900045
 ```
 
 Example response:
@@ -65,6 +71,8 @@ Example response:
 | Type | Value |
 |---|---|
 | Name: | X4071UHSU-B1 |
+| Icecat Product Id: | 29900045 |
+| EAN: | 4948570114344 |
 | Release:  |  2015-10-04        |
 | Supplier:  | iiyama |
 | Category: | public displays |
@@ -73,10 +81,19 @@ Example response:
 | Manual PDF Url: | http://pdfs.icecat.biz/pdf/48068167-5566-manual.pdf |
 | Product Info PDF Url:    | http://pdfs.icecat.biz/pdf/48068173-7155.pdf|
 
-## Save product information
+## Download product information
+Download Icecat XML, Images and PDF product information.
 
+A new folder will be created based on the Icecat unique product Id.
+
+Request with EAN:
 ```bash
 icecat -c config.ini --gtin 4948570114344 --save
+```
+
+Request with Icecat Product ID:
+```bash
+icecat -c config.ini --id 29900045 --save
 ```
 
 Example response:
@@ -90,7 +107,7 @@ Successfully downloaded file: http://pdfs.icecat.biz/pdf/48068173-7155.pdf
 
 Creates folder structure:
 
-- 4948570114344
+- 29900045
     - images
         - 29900045_9148.jpg
         - 29900045_7312.jpg
@@ -98,9 +115,12 @@ Creates folder structure:
         - ... etc
     - pdfs
         - 48068173-7155.pdf
-    - 4948570114344.xml
+        - 48068167-5566-manual.pdf
+    - 29900045.xml
 
-## Download Full Icecat Free XML Export
+## Download Free XML Export
+
+Default XML export:
 ```bash
 icecat -c config.ini --export
 ```
@@ -112,6 +132,7 @@ Start downloading export to:
   Downloading [============        ] 2637 Kb/s 58% 13.7s
 ```
 
+XML export with specific language:
 ```bash
 icecat -c config.ini --export --lang DE
 ```

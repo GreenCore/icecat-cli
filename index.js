@@ -27,23 +27,38 @@ if (currentOption === icecatArguments.options.EMPTY) {
     icecatConfig.getIcecatConfig().then(function (config) {
         const Icecat = new icecat(config.account.username, config.account.password);
 
-        Icecat.openCatalog.getProduct(config.product.defaultLanguage, icecatArguments.argv.gtin)
-            .then(function (product) {
-                let displayProduct = new DisplayProduct();
-                displayProduct.display(product);
-            });
+        if (typeof icecatArguments.argv.gtin === 'number' && icecatArguments.argv.gtin >= 10000000) {
+            Icecat.openCatalog.getProduct(config.product.defaultLanguage, icecatArguments.argv.gtin)
+                .then(function (product) {
+                    let displayProduct = new DisplayProduct();
+                    displayProduct.display(product);
+                });
+        } else if (typeof icecatArguments.argv.id === 'number' && icecatArguments.argv.id > 0) {
+            Icecat.openCatalog.getProductById(config.product.defaultLanguage, icecatArguments.argv.id)
+                .then(function (product) {
+                    let displayProduct = new DisplayProduct();
+                    displayProduct.display(product);
+                });
+        }
     }).catch(function () {
         console.log('Invalid product config.');
     });
 } else if (currentOption === icecatArguments.options.SAVEPRODUCT) {
     icecatConfig.getIcecatConfig().then(function (config) {
         const Icecat = new icecat(config.account.username, config.account.password);
-
-        Icecat.openCatalog.getProduct(config.product.defaultLanguage, icecatArguments.argv.gtin)
-            .then(function (product) {
-                let saveProduct = new SaveProduct();
-                saveProduct.save(product);
-            });
+        if (typeof icecatArguments.argv.gtin === 'number' && icecatArguments.argv.gtin >= 10000000) {
+            Icecat.openCatalog.getProduct(config.product.defaultLanguage, icecatArguments.argv.gtin)
+                .then(function (product) {
+                    let saveProduct = new SaveProduct();
+                    saveProduct.save(product);
+                });
+        } else if (typeof icecatArguments.argv.id === 'number' && icecatArguments.argv.id > 0) {
+            Icecat.openCatalog.getProductById(config.product.defaultLanguage, icecatArguments.argv.id)
+                .then(function (product) {
+                    let saveProduct = new SaveProduct();
+                    saveProduct.save(product);
+                });
+        }
     }).catch(function () {
         console.log('Invalid product config.');
     });
