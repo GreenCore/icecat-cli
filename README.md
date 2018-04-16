@@ -60,7 +60,7 @@ Request with EAN:
 icecat -c config.ini --gtin 4948570114344
 ```
 
-Request with Icecat Product ID:
+Request with Icecat Product Id:
 ```bash
 icecat -c config.ini --id 29900045
 ```
@@ -91,7 +91,7 @@ Request with EAN:
 icecat -c config.ini --gtin 4948570114344 --save
 ```
 
-Request with Icecat Product ID:
+Request with Icecat Product Id:
 ```bash
 icecat -c config.ini --id 29900045 --save
 ```
