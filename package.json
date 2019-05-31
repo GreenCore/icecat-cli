@@ -1,6 +1,6 @@
 {
   "name": "icecat-cli",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Icecat - Command Line Interface",
   "main": "index.js",
   "bin": {
@@ -27,21 +27,22 @@
     "ean",
     "upc",
     "product",
+    "webshop",
     "description"
   ],
   "author": "GreenCore",
   "license": "MIT",
   "dependencies": {
     "cli-table": "^0.3.1",
-    "icecat": "^1.2.0",
-    "ini": "^1.3.4",
-    "inquirer": "^5.2.0",
+    "icecat": "^1.4.1",
+    "ini": "^1.3.5",
+    "inquirer": "^6.3.1",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
-    "progress": "^2.0.0"
+    "progress": "^2.0.3"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "mocha": "^5.0.5"
+    "eslint": "^5.16.0",
+    "mocha": "^6.1.4"
   }
 }
