@@ -8,8 +8,12 @@ describe('IcecatCLI-console', function () {
     let icecatConsole = new IcecatConsole();
 
     describe('run console', function () {
-        it('should get new config console question', function () {
-            icecatConsole.run();
+        it('should show help info', function () {
+            icecatConsole.help();
+        });
+
+        it('should show version info', function () {
+            icecatConsole.version();
         });
 
     });
