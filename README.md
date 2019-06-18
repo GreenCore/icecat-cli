@@ -4,7 +4,8 @@
 [![Known Vulnerabilities][snyk-image]][snyk-url]
 
 
-Command Line Interface for Icecat product data.
+Command Line Interface for the [Icecat API](https://github.com/GreenCore/icecat). 
+
 - [Show product information](#show-product-information)
 - [Download product information](#download-product-information)
 - [Download Free XML Export](#download-free-xml-export)
