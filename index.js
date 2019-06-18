@@ -39,6 +39,12 @@ if (currentOption === icecatArguments.options.EMPTY) {
                     let displayProduct = new DisplayProduct();
                     displayProduct.display(product);
                 });
+        } else if (icecatArguments.argv.brand !== "" && icecatArguments.argv.sku !== "") {
+            Icecat.openCatalog.getProductBySKU(config.product.defaultLanguage, icecatArguments.argv.brand, icecatArguments.argv.sku)
+                .then(function (product) {
+                    let displayProduct = new DisplayProduct();
+                    displayProduct.display(product);
+                });
         }
     }).catch(function () {
         console.log('Invalid product config.');
@@ -54,6 +60,12 @@ if (currentOption === icecatArguments.options.EMPTY) {
                 });
         } else if (typeof icecatArguments.argv.id === 'number' && icecatArguments.argv.id > 0) {
             Icecat.openCatalog.getProductById(config.product.defaultLanguage, icecatArguments.argv.id)
+                .then(function (product) {
+                    let saveProduct = new SaveProduct();
+                    saveProduct.save(product);
+                });
+        } else if (icecatArguments.argv.brand !== "" && icecatArguments.argv.sku !== "") {
+            Icecat.openCatalog.getProductBySKU(config.product.defaultLanguage, icecatArguments.argv.brand, icecatArguments.argv.sku)
                 .then(function (product) {
                     let saveProduct = new SaveProduct();
                     saveProduct.save(product);
